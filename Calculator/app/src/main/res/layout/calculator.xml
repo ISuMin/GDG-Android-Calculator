@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.nanog.calculator.Calculator">
 
+    <!-- Дисплей \/ -->
 
     <LinearLayout
         android:orientation="horizontal"
@@ -14,20 +15,13 @@
         android:layout_weight="1">
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="@string/DEC"
-            android:id="@+id/DEC_Btn"
-            android:background="@drawable/custombtn"
-            android:layout_weight="1" />
+            style="@style/top_btn"
+            android:text="@string/dec"
+            android:id="@+id/DEC_Btn" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/text1"
-            android:layout_weight="4"
-            android:gravity="center"
-            android:textSize="20sp" />
+            style="@style/top_text"
+            android:id="@+id/text1" />
 
     </LinearLayout>
 
@@ -38,20 +32,14 @@
         android:layout_weight="1" >
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="@string/HEX"
-            android:id="@+id/HEX_Btn"
-            android:layout_weight="1"
-            android:background="@drawable/custombtn" />
+            style="@style/top_btn"
+            android:text="@string/hex"
+            android:id="@+id/HEX_Btn" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/text2"
-            android:layout_weight="4"
-            android:gravity="center"
-            android:textSize="20sp" />
+            style="@style/top_text"
+            android:id="@+id/text2" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -61,20 +49,14 @@
         android:layout_weight="1" >
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="@string/OCT"
-            android:id="@+id/OCT_Btn"
-            android:layout_weight="1"
-            android:background="@drawable/custombtn" />
+            style="@style/top_btn"
+            android:text="@string/oct"
+            android:id="@+id/OCT_Btn" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/text3"
-            android:layout_weight="4"
-            android:gravity="center"
-            android:textSize="20sp" />
+            style="@style/top_text"
+            android:id="@+id/text3" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -84,21 +66,17 @@
         android:layout_weight="1">
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="@string/BIN"
-            android:id="@+id/BIN_Btn"
-            android:layout_weight="1"
-            android:background="@drawable/custombtn" />
+            style="@style/top_btn"
+            android:text="@string/bin"
+            android:id="@+id/BIN_Btn" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/text4"
-            android:layout_weight="4"
-            android:gravity="center"
-            android:textSize="20sp" />
+            style="@style/top_text"
+            android:id="@+id/text4" />
+
     </LinearLayout>
+
+    <!-- Клавиатура \/ -->
 
     <LinearLayout
         android:orientation="horizontal"
@@ -114,33 +92,33 @@
             android:layout_weight="1">
 
             <Button
-                style="@style/SecondBtn"
-                android:text="@string/btnA"
+                style="@style/second_btn"
+                android:text="@string/btn_a"
                 android:id="@+id/btnA" />
 
             <Button
-                style="@style/SecondBtn"
-                android:text="@string/btnB"
+                style="@style/second_btn"
+                android:text="@string/btn_b"
                 android:id="@+id/btnB" />
 
             <Button
-                style="@style/SecondBtn"
-                android:text="@string/btnC"
+                style="@style/second_btn"
+                android:text="@string/btn_c"
                 android:id="@+id/btnC" />
 
             <Button
-                style="@style/SecondBtn"
-                android:text="@string/btnD"
+                style="@style/second_btn"
+                android:text="@string/btn_d"
                 android:id="@+id/btnD" />
 
             <Button
-                style="@style/SecondBtn"
-                android:text="@string/btnE"
+                style="@style/second_btn"
+                android:text="@string/btn_e"
                 android:id="@+id/btnE" />
 
             <Button
-                style="@style/SecondBtn"
-                android:text="@string/btnF"
+                style="@style/second_btn"
+                android:text="@string/btn_f"
                 android:id="@+id/btnF" />
 
         </LinearLayout>
@@ -152,23 +130,23 @@
             android:layout_weight="1">
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnSeven"
+                style="@style/first_btn"
+                android:text="@string/btn_seven"
                 android:id="@+id/btnSeven" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnFour"
+                style="@style/first_btn"
+                android:text="@string/btn_four"
                 android:id="@+id/btnFour" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnOne"
+                style="@style/first_btn"
+                android:text="@string/btn_one"
                 android:id="@+id/btnOne" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnReset"
+                style="@style/first_btn"
+                android:text="@string/btn_reset"
                 android:id="@+id/btnReset" />
         </LinearLayout>
 
@@ -179,23 +157,23 @@
             android:layout_weight="1">
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnEight"
+                style="@style/first_btn"
+                android:text="@string/btn_eight"
                 android:id="@+id/btnEight" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnFive"
+                style="@style/first_btn"
+                android:text="@string/btn_five"
                 android:id="@+id/btnFive" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnTwo"
+                style="@style/first_btn"
+                android:text="@string/btn_two"
                 android:id="@+id/btnTwo" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnZero"
+                style="@style/first_btn"
+                android:text="@string/btn_zero"
                 android:id="@+id/btnZero" />
         </LinearLayout>
 
@@ -206,26 +184,26 @@
             android:layout_weight="1">
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnNine"
+                style="@style/first_btn"
+                android:text="@string/btn_nine"
                 android:id="@+id/btnNine" />
 
             <Button
-                style="@style/FirstBtn"
+                style="@style/first_btn"
                 android:layout_weight="1"
-                android:text="@string/btnSix"
+                android:text="@string/btn_six"
                 android:id="@+id/btnSix" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnThree"
+                style="@style/first_btn"
+                android:text="@string/btn_three"
                 android:id="@+id/btnThree" />
 
             <ImageButton
-                style="@style/FirstBtn"
+                style="@style/first_btn"
                 android:id="@+id/btnBack"
                 android:src="@drawable/backspase_btn"
-                android:contentDescription="@string/btnBack" />
+                android:contentDescription="@string/btn_back" />
 
         </LinearLayout>
 
@@ -236,28 +214,28 @@
             android:layout_weight="1">
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnDivide"
+                style="@style/first_btn"
+                android:text="@string/btn_divide"
                 android:id="@+id/btnDivide" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnMultiply"
+                style="@style/first_btn"
+                android:text="@string/btn_multiply"
                 android:id="@+id/btnMultiply" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnMinus"
+                style="@style/first_btn"
+                android:text="@string/btn_minus"
                 android:id="@+id/btnMinus" />
 
             <Button
-                style="@style/FirstBtn"
-                android:text="@string/btnPlus"
+                style="@style/first_btn"
+                android:text="@string/btn_plus"
                 android:id="@+id/btnPlus" />
 
             <Button
-                style="@style/SecondBtn"
-                android:text="@string/btnEquals"
+                style="@style/second_btn"
+                android:text="@string/btn_equals"
                 android:id="@+id/btnEquals"
                 android:textSize="30sp"/>
         </LinearLayout>

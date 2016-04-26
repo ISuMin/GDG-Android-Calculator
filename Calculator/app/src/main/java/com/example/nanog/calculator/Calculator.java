@@ -7,49 +7,55 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+// 4/23/2016...
 // Hi!
 // Спохватился в последний день и ничего толком не успел.
 // Работает 10-чный с переводом в остальные системы счисления и двоичный, но тут уже без перевода.
 // До этого на Java не писал ни разу. Использовал стек HTML, CSS, JS, Apache Cordova.//
 
+// 4/26/2016...
+// It's alive!!!
+// За час сделал то над чем раньше тупил половину суток.
+// Как я рад.
+// Всё работает, почти все пожелания учтены.
+// Извиняюсь за лишние комментарии.
 
 public class Calculator extends AppCompatActivity {
 
-    private Button DEC_Btn = null;
-    private Button HEX_Btn = null;
-    private Button OCT_Btn = null;
-    private Button BIN_Btn = null;
-    private TextView text1 = null;
-    private TextView text2 = null;
-    private TextView text3 = null;
-    private TextView text4 = null;
-    private Button btnZero = null;
-    private Button btnOne = null;
-    private Button btnTwo = null;
-    private Button btnThree = null;
-    private Button btnFour = null;
-    private Button btnFive = null;
-    private Button btnSix = null;
-    private Button btnSeven = null;
-    private Button btnEight = null;
-    private Button btnNine = null;
-    private Button btnPlus = null;
-    private Button btnMinus = null;
-    private Button btnMultiply = null;
-    private Button btnDivide = null;
-    private Button btnEquals = null;
-    private Button btnReset = null;
-    private ImageButton btnBack = null;
-    private Button btnA = null;
-    private Button btnB = null;
-    private Button btnC = null;
-    private Button btnD = null;
-    private Button btnE = null;
-    private Button btnF = null;
+    //    Объявление переменных
+    private Button DEC_Btn;
+    private Button HEX_Btn;
+    private Button OCT_Btn;
+    private Button BIN_Btn;
+    private TextView text1;
+    private TextView text2;
+    private TextView text3;
+    private TextView text4;
+    private Button btnZero;
+    private Button btnOne;
+    private Button btnTwo;
+    private Button btnThree;
+    private Button btnFour;
+    private Button btnFive;
+    private Button btnSix;
+    private Button btnSeven;
+    private Button btnEight;
+    private Button btnNine;
+    private Button btnPlus;
+    private Button btnMinus;
+    private Button btnMultiply;
+    private Button btnDivide;
+    private Button btnEquals;
+    private Button btnReset;
+    private ImageButton btnBack;
+    private Button btnA;
+    private Button btnB;
+    private Button btnC;
+    private Button btnD;
+    private Button btnE;
+    private Button btnF;
 
     private int num = 0;
-    private String tx;
-    private String sb;
 
     private int operator = 1;
     // 0 = ничего
@@ -66,7 +72,6 @@ public class Calculator extends AppCompatActivity {
     boolean octCheck = false;
     boolean binCheck = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +82,7 @@ public class Calculator extends AppCompatActivity {
         dec();
     }
 
-
-    //  Обработка нажатий
+    //    Обработка нажатий
     private void initControls() {
 
         //
@@ -258,89 +262,122 @@ public class Calculator extends AppCompatActivity {
         });
     }
 
-    //        Обработка функций
+    //    Обработка функций
     private void handleEquals(int newOperator) {
+
         String txt;
+        int num1 = Integer.parseInt(text1.getText().toString());
+        int num2 = Integer.parseInt(text2.getText().toString(), 16);
+        int num3 = Integer.parseInt(text3.getText().toString(), 8);
+        int num4 = Integer.parseInt(text4.getText().toString(), 2);
+
         if (hasChanged) {
             switch (operator) {
                 case 1:
                     if (decCheck) {
-                        num = num + Integer.parseInt(text1.getText().toString());
+                        num = num + num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
-                    } else if (hexCheck) {
-                        num = num + Integer.parseInt(text2.getText().toString());
+                    }
+                    if (hexCheck) {
+                        num = num + num2;
                         txt = Integer.toHexString(num);
                         handleVisionHex(txt);
-                    } else if (octCheck) {
-                        num = num + Integer.parseInt(text3.getText().toString());
+                    }
+                    if (octCheck) {
+                        num = num + num3;
                         txt = Integer.toOctalString(num);
                         handleVisionOct(txt);
-                    } else if (binCheck) {
-                        num = num + Integer.parseInt(text4.getText().toString(), 2);
+                    }
+                    if (binCheck) {
+                        num = num + num4;
                         txt = Integer.toBinaryString(num);
                         handleVisionBin(txt);
                     }
                     break;
                 case 2:
                     if (decCheck) {
-                        num = num - Integer.parseInt(text1.getText().toString());
+                        num = num - num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
-                    } else if (hexCheck) {
-                        num = num - Integer.parseInt(text2.getText().toString());
+                    }
+                    if (hexCheck) {
+                        num = num - num2;
                         txt = Integer.toHexString(num);
                         handleVisionHex(txt);
-                    } else if (octCheck) {
-                        num = num - Integer.parseInt(text3.getText().toString());
+                    }
+                    if (octCheck) {
+                        num = num - num3;
                         txt = Integer.toOctalString(num);
                         handleVisionOct(txt);
-                    } else if (binCheck) {
-                        num = num - Integer.parseInt(text4.getText().toString(), 2);
+                    }
+                    if (binCheck) {
+                        num = num - num4;
                         txt = Integer.toBinaryString(num);
                         handleVisionBin(txt);
                     }
                     break;
                 case 3:
                     if (decCheck) {
-                        num = num * Integer.parseInt(text1.getText().toString());
+                        num = num * num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
-                    } else if (hexCheck) {
-                        num = num * Integer.parseInt(text2.getText().toString());
+                    }
+                    if (hexCheck) {
+                        num = num * num2;
                         txt = Integer.toHexString(num);
                         handleVisionHex(txt);
-                    } else if (octCheck) {
-                        num = num * Integer.parseInt(text3.getText().toString());
+                    }
+                    if (octCheck) {
+                        num = num * num3;
                         txt = Integer.toOctalString(num);
                         handleVisionOct(txt);
-                    } else if (binCheck) {
-                        num = num * Integer.parseInt(text4.getText().toString(), 2);
+                    }
+                    if (binCheck) {
+                        num = num * num4;
                         txt = Integer.toBinaryString(num);
                         handleVisionBin(txt);
                     }
                     break;
                 case 4:
                     if (decCheck) {
-                        num = num / Integer.parseInt(text1.getText().toString());
-                        txt = Integer.toString(num);
-                        handleVisionDec(txt);
-                    } else if (hexCheck) {
-                        num = num / Integer.parseInt(text2.getText().toString());
-                        txt = Integer.toHexString(num);
-                        handleVisionHex(txt);
-                    } else if (octCheck) {
-                        num = num / Integer.parseInt(text3.getText().toString());
-                        txt = Integer.toOctalString(num);
-                        handleVisionOct(txt);
-                    } else if (binCheck) {
-                        num = num / Integer.parseInt(text4.getText().toString(), 2);
-                        txt = Integer.toBinaryString(num);
-                        handleVisionBin(txt);
+                        if (num1!=0) {
+                            num = num / num1;
+                            txt = Integer.toString(num);
+                            handleVisionDec(txt);
+                        } else {
+                            text1.setText(R.string.non_zero);
+                        }
+                    }
+                    if (hexCheck) {
+                        if (num2!=0) {
+                            num = num / num2;
+                            txt = Integer.toHexString(num);
+                            handleVisionHex(txt);
+                        } else {
+                            text2.setText(R.string.non_zero);
+                        }
+                    }
+                    if (octCheck) {
+                        if (num3!=0) {
+                            num = num / num3;
+                            txt = Integer.toOctalString(num);
+                            handleVisionOct(txt);
+                        } else {
+                            text3.setText(R.string.non_zero);
+                        }
+                    }
+                    if (binCheck) {
+                        if (num4!=0) {
+                            num = num / num4;
+                            txt = Integer.toBinaryString(num);
+                            handleVisionBin(txt);
+                        } else {
+                            text4.setText(R.string.non_zero);
+                        }
                     }
                     break;
             }
-
 
             readyToClear = true;
             hasChanged = false;
@@ -348,8 +385,6 @@ public class Calculator extends AppCompatActivity {
 
         operator = newOperator;
     }
-
-
 
     //    Вывод числа на экран
     private void handleNumber(int num) {
@@ -422,7 +457,6 @@ public class Calculator extends AppCompatActivity {
             handleVisionBin(txt);
         }
 
-
         hasChanged = true;
     }
 
@@ -438,47 +472,36 @@ public class Calculator extends AppCompatActivity {
     }
 
     private void handleVisionHex(String txt) {
-        // DEC
-//        text1.setText(Integer.toString(Integer.parseInt(text3.getText().toString(), 16)));
         // HEX
         text2.setText(txt);
+        // DEC
+        text1.setText(Integer.toString(Integer.parseInt(text2.getText().toString(), 16)));
         // OCT
-//        text3.setText(Integer.toOctalString(Integer.parseInt(text1.getText().toString())));
+        text3.setText(Integer.toOctalString(Integer.parseInt(text2.getText().toString(), 16)));
         // BIN
-//        text4.setText(Integer.toBinaryString(Integer.parseInt(text1.getText().toString())));
+        text4.setText(Integer.toBinaryString(Integer.parseInt(text2.getText().toString(), 16)));
     }
 
     private void handleVisionOct(String txt) {
-            // OCT
-            text3.setText(txt);
-            // DEC
-//            text1.setText(Integer.toString(Integer.parseInt(text3.getText().toString(), 8)));
-            // HEX
-//            text2.setText(Integer.toHexString(Integer.parseInt(text1.getText().toString())));
-            // BIN
-//            text4.setText(Integer.toBinaryString(Integer.parseInt(text1.toString())));
+        // OCT
+        text3.setText(txt);
+        // DEC
+        text1.setText(Integer.toString(Integer.parseInt(text3.getText().toString(), 8)));
+        // HEX
+        text2.setText(Integer.toHexString(Integer.parseInt(text3.getText().toString(), 8)));
+        // BIN
+        text4.setText(Integer.toBinaryString(Integer.parseInt(text3.getText().toString(), 8)));
     }
 
     private void handleVisionBin(String txt) {
-            // BIN
-            text4.setText(txt);
-            // DEC
-            handleBin(txt);
-            // HEX
-//            text2.setText(Integer.toHexString(Integer.parseInt(tx)));
-            // OCT
-//            text3.setText(Integer.toOctalString(Integer.parseInt(tx)));
-    }
-
-    private void handleBin(String txt) {
-        int a = 8;
-        StringBuilder sb = new StringBuilder();
-        do {
-            sb.append(a % 2);
-            a = a / 2;
-        } while (a != 0);
-        text1.setText(sb.toString());
-        tx = sb.toString();
+        // BIN
+        text4.setText(txt);
+        // DEC
+        text1.setText(Integer.toString(Integer.parseInt(text4.getText().toString(), 2)));
+        // HEX
+        text2.setText(Integer.toHexString(Integer.parseInt(text4.getText().toString(), 2)));
+        // OCT
+        text3.setText(Integer.toOctalString(Integer.parseInt(text4.getText().toString(), 2)));
     }
 
     ///////////////////////////////////////////////
@@ -488,72 +511,33 @@ public class Calculator extends AppCompatActivity {
         if (!readyToClear) {
             if (decCheck) {
                 String txt = text1.getText().toString();
-                if (txt.length() > 0) {
-                    txt = txt.substring(0, txt.length() - 1);
-                    if (txt.equals(""))
-                        txt = "0";
-
-                    if (decCheck) {
-                        handleVisionDec(txt);
-                    } else if (hexCheck) {
-                        handleVisionHex(txt);
-                    } else if (octCheck) {
-                        handleVisionOct(txt);
-                    } else if (binCheck) {
-                        handleVisionBin(txt);
-                    }
-                }
+                output(txt);
             } else if (hexCheck) {
                 String txt = text2.getText().toString();
-                if (txt.length() > 0) {
-                    txt = txt.substring(0, txt.length() - 1);
-                    if (txt.equals(""))
-                        txt = "0";
-
-                    if (decCheck) {
-                        handleVisionDec(txt);
-                    } else if (hexCheck) {
-                        handleVisionHex(txt);
-                    } else if (octCheck) {
-                        handleVisionOct(txt);
-                    } else if (binCheck) {
-                        handleVisionBin(txt);
-                    }
-                }
+                output(txt);
             } else if (octCheck) {
                 String txt = text3.getText().toString();
-                if (txt.length() > 0) {
-                    txt = txt.substring(0, txt.length() - 1);
-                    if (txt.equals(""))
-                        txt = "0";
-
-                    if (decCheck) {
-                        handleVisionDec(txt);
-                    } else if (hexCheck) {
-                        handleVisionHex(txt);
-                    } else if (octCheck) {
-                        handleVisionOct(txt);
-                    } else if (binCheck) {
-                        handleVisionBin(txt);
-                    }
-                }
+                output(txt);
             } else if (binCheck) {
                 String txt = text4.getText().toString();
-                if (txt.length() > 0) {
-                    txt = txt.substring(0, txt.length() - 1);
-                    if (txt.equals(""))
-                        txt = "0";
+                output(txt);
+            }
+        }
+    }
+    private void output(String txt) {
+        if (txt.length() > 0) {
+            txt = txt.substring(0, txt.length() - 1);
+            if (txt.equals(""))
+                txt = "0";
 
-                    if (decCheck) {
-                        handleVisionDec(txt);
-                    } else if (hexCheck) {
-                        handleVisionHex(txt);
-                    } else if (octCheck) {
-                        handleVisionOct(txt);
-                    } else if (binCheck) {
-                        handleVisionBin(txt);
-                    }
-                }
+            if (decCheck) {
+                handleVisionDec(txt);
+            } else if (hexCheck) {
+                handleVisionHex(txt);
+            } else if (octCheck) {
+                handleVisionOct(txt);
+            } else if (binCheck) {
+                handleVisionBin(txt);
             }
         }
     }
@@ -677,18 +661,5 @@ public class Calculator extends AppCompatActivity {
         octCheck = false;
         binCheck = true;
         reset();
-    }
-
-
-    //    Перевод 10-чного в 2-чное
-    public void DecToBin() {
-        int a = Integer.parseInt(text1.getText().toString());
-        StringBuilder sb = new StringBuilder();
-        while (a > 0) {
-            sb.insert(0, a & 1);
-            a >>= 1;
-        }
-        if (sb.length() == 0) sb.append("0");
-        text4.setText(sb.toString());
     }
 }

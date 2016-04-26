@@ -6,16 +6,14 @@
     <color name="accent">#FF9800</color>
     <color name="primary_text">#ffffff</color>
     <color name="secondary_text">#727272</color>
-    <color name="icons">#FFFFFF</color>
-    <color name="divider">#B6B6B6</color>
 
-    <color name="mainBtn">#333333</color>
-    <color name="mainBtn_onFocus">#383838</color>
-    <color name="mainBtn_onClick">#434343</color>
+    <color name="main_btn">#333333</color>
+    <color name="main_btn_on_focus">#383838</color>
+    <color name="main_btn_on_click">#434343</color>
 
-    <color name="mainBtn1">#FF5722</color>
-    <color name="mainBtn1_onFocus">#ff521c</color>
-    <color name="mainBtn1_onClick">#ff4d14</color>
-    <color name="mainBtn1_Disabled">#ff6332</color>
+    <color name="main_btn1">#FF5722</color>
+    <color name="main_btn1_on_focus">#ff521c</color>
+    <color name="main_btn1_on_click">#ff4d14</color>
+    <color name="main_btn1_disabled">#ff6332</color>
 
 </resources>

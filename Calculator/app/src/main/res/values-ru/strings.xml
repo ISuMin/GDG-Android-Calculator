@@ -22,13 +22,13 @@
     <string name="btn_divide">/</string>
     <string name="btn_equals">=</string>
     <string name="btn_reset">C</string>
-    <string name="btn_back">Erase one character.</string>
+    <string name="btn_back">Стирает один символ.</string>
     <string name="btn_a">a</string>
     <string name="btn_b">b</string>
     <string name="btn_c">c</string>
     <string name="btn_d">d</string>
     <string name="btn_e">e</string>
     <string name="btn_f">f</string>
-    <string name="non_zero">At zero can not divide.</string>
+    <string name="non_zero">На ноль делить нельзя.</string>
 
 </resources>

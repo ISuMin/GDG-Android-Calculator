@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true" >
         <shape>
-            <solid android:color="@color/mainBtn1_onClick" />
+            <solid android:color="@color/main_btn1_on_click" />
             <padding
                 android:bottom="0dp"
                 android:left="10dp"
@@ -13,7 +13,7 @@
     </item>
     <item android:state_focused="true">
         <shape>
-            <solid android:color="@color/mainBtn1_onFocus" />
+            <solid android:color="@color/main_btn1_on_focus" />
             <padding
                 android:bottom="0dp"
                 android:left="10dp"
@@ -24,7 +24,7 @@
     </item>
     <item android:state_enabled="false">
         <shape>
-            <solid android:color="@color/mainBtn1_Disabled" />
+            <solid android:color="@color/main_btn1_disabled" />
             <padding
                 android:bottom="0dp"
                 android:left="10dp"
@@ -35,7 +35,7 @@
     </item>
     <item>
         <shape>
-            <solid android:color="@color/mainBtn1" />
+            <solid android:color="@color/main_btn1" />
             <padding
                 android:bottom="0dp"
                 android:left="10dp"
