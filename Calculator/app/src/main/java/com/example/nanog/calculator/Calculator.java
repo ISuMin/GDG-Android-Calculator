@@ -16,44 +16,43 @@ import android.widget.TextView;
 // 4/26/2016...
 // It's alive!!!
 // За час сделал то над чем раньше тупил половину суток.
-// Как я рад.
-// Всё работает, почти все пожелания учтены.
+// Вроде всё работает, почти все пожелания учтены.
 // Извиняюсь за лишние комментарии.
 
 public class Calculator extends AppCompatActivity {
 
     //    Объявление переменных
-    private Button DEC_Btn;
-    private Button HEX_Btn;
-    private Button OCT_Btn;
-    private Button BIN_Btn;
+    private Button dec_btn;
+    private Button hex_btn;
+    private Button oct_btn;
+    private Button bin_btn;
     private TextView text1;
     private TextView text2;
     private TextView text3;
     private TextView text4;
-    private Button btnZero;
-    private Button btnOne;
-    private Button btnTwo;
-    private Button btnThree;
-    private Button btnFour;
-    private Button btnFive;
-    private Button btnSix;
-    private Button btnSeven;
-    private Button btnEight;
-    private Button btnNine;
-    private Button btnPlus;
-    private Button btnMinus;
-    private Button btnMultiply;
-    private Button btnDivide;
-    private Button btnEquals;
-    private Button btnReset;
-    private ImageButton btnBack;
-    private Button btnA;
-    private Button btnB;
-    private Button btnC;
-    private Button btnD;
-    private Button btnE;
-    private Button btnF;
+    private Button btn_zero;
+    private Button btn_one;
+    private Button btn_two;
+    private Button btn_three;
+    private Button btn_four;
+    private Button btn_five;
+    private Button btn_six;
+    private Button btn_seven;
+    private Button btn_eight;
+    private Button btn_nine;
+    private Button btn_plus;
+    private Button btn_minus;
+    private Button btn_multiply;
+    private Button btn_divide;
+    private Button btn_equals;
+    private Button btn_reset;
+    private ImageButton btn_back;
+    private Button btn_a;
+    private Button btn_b;
+    private Button btn_c;
+    private Button btn_d;
+    private Button btn_e;
+    private Button btn_f;
 
     private int num = 0;
 
@@ -64,198 +63,198 @@ public class Calculator extends AppCompatActivity {
     // 3 = умножение
     // 4 = деление
 
-    private boolean readyToClear = false;
-    private boolean hasChanged = false;
+    private boolean ready_to_clear = false;
+    private boolean has_changed = false;
 
-    boolean decCheck = false;
-    boolean hexCheck = false;
-    boolean octCheck = false;
-    boolean binCheck = false;
+    boolean dec_check = false;
+    boolean hex_check = false;
+    boolean oct_check = false;
+    boolean bin_check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator);
 
-        initControls();
+        init_controls();
         reset();
         dec();
     }
 
     //    Обработка нажатий
-    private void initControls() {
+    private void init_controls() {
 
         //
-        DEC_Btn = (Button) findViewById(R.id.DEC_Btn);
-        HEX_Btn = (Button) findViewById(R.id.HEX_Btn);
-        OCT_Btn = (Button) findViewById(R.id.OCT_Btn);
-        BIN_Btn = (Button) findViewById(R.id.BIN_Btn);
+        dec_btn = (Button) findViewById(R.id.dec_btn);
+        hex_btn = (Button) findViewById(R.id.hex_btn);
+        oct_btn = (Button) findViewById(R.id.oct_btn);
+        bin_btn = (Button) findViewById(R.id.bin_btn);
         text1 = (TextView) findViewById(R.id.text1);
         text2 = (TextView) findViewById(R.id.text2);
         text3 = (TextView) findViewById(R.id.text3);
         text4 = (TextView) findViewById(R.id.text4);
-        btnZero = (Button) findViewById(R.id.btnZero);
-        btnOne = (Button) findViewById(R.id.btnOne);
-        btnTwo = (Button) findViewById(R.id.btnTwo);
-        btnThree = (Button) findViewById(R.id.btnThree);
-        btnFour = (Button) findViewById(R.id.btnFour);
-        btnFive = (Button) findViewById(R.id.btnFive);
-        btnSix = (Button) findViewById(R.id.btnSix);
-        btnSeven = (Button) findViewById(R.id.btnSeven);
-        btnEight = (Button) findViewById(R.id.btnEight);
-        btnNine = (Button) findViewById(R.id.btnNine);
-        btnPlus = (Button) findViewById(R.id.btnPlus);
-        btnMinus = (Button) findViewById(R.id.btnMinus);
-        btnMultiply = (Button) findViewById(R.id.btnMultiply);
-        btnDivide = (Button) findViewById(R.id.btnDivide);
-        btnEquals = (Button) findViewById(R.id.btnEquals);
-        btnReset = (Button) findViewById(R.id.btnReset);
-        btnBack = (ImageButton) findViewById(R.id.btnBack);
-        btnA = (Button) findViewById(R.id.btnA);
-        btnB = (Button) findViewById(R.id.btnB);
-        btnC = (Button) findViewById(R.id.btnC);
-        btnD = (Button) findViewById(R.id.btnD);
-        btnE = (Button) findViewById(R.id.btnE);
-        btnF = (Button) findViewById(R.id.btnF);
+        btn_zero = (Button) findViewById(R.id.btn_zero);
+        btn_one = (Button) findViewById(R.id.btn_one);
+        btn_two = (Button) findViewById(R.id.btn_two);
+        btn_three = (Button) findViewById(R.id.btn_three);
+        btn_four = (Button) findViewById(R.id.btn_four);
+        btn_five = (Button) findViewById(R.id.btn_five);
+        btn_six = (Button) findViewById(R.id.btn_six);
+        btn_seven = (Button) findViewById(R.id.btn_seven);
+        btn_eight = (Button) findViewById(R.id.btn_eight);
+        btn_nine = (Button) findViewById(R.id.btn_nine);
+        btn_plus = (Button) findViewById(R.id.btn_plus);
+        btn_minus = (Button) findViewById(R.id.btn_minus);
+        btn_multiply = (Button) findViewById(R.id.btn_multiply);
+        btn_divide = (Button) findViewById(R.id.btn_divide);
+        btn_equals = (Button) findViewById(R.id.btn_equals);
+        btn_reset = (Button) findViewById(R.id.btn_reset);
+        btn_back = (ImageButton) findViewById(R.id.btn_back);
+        btn_a = (Button) findViewById(R.id.btn_a);
+        btn_b = (Button) findViewById(R.id.btn_b);
+        btn_c = (Button) findViewById(R.id.btn_c);
+        btn_d = (Button) findViewById(R.id.btn_d);
+        btn_e = (Button) findViewById(R.id.btn_e);
+        btn_f = (Button) findViewById(R.id.btn_f);
 
         //        Вызов цифр
-        btnZero.setOnClickListener(new Button.OnClickListener() {
+        btn_zero.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(0);
             }
         });
-        btnOne.setOnClickListener(new Button.OnClickListener() {
+        btn_one.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(1);
             }
         });
-        btnTwo.setOnClickListener(new Button.OnClickListener() {
+        btn_two.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(2);
             }
         });
-        btnThree.setOnClickListener(new Button.OnClickListener() {
+        btn_three.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(3);
             }
         });
-        btnFour.setOnClickListener(new Button.OnClickListener() {
+        btn_four.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(4);
             }
         });
-        btnFive.setOnClickListener(new Button.OnClickListener() {
+        btn_five.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(5);
             }
         });
-        btnSix.setOnClickListener(new Button.OnClickListener() {
+        btn_six.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(6);
             }
         });
-        btnSeven.setOnClickListener(new Button.OnClickListener() {
+        btn_seven.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(7);
             }
         });
-        btnEight.setOnClickListener(new Button.OnClickListener() {
+        btn_eight.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(8);
             }
         });
-        btnNine.setOnClickListener(new Button.OnClickListener() {
+        btn_nine.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(9);
             }
         });
-        btnA.setOnClickListener(new Button.OnClickListener() {
+        btn_a.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(10);
             }
         });
-        btnB.setOnClickListener(new Button.OnClickListener() {
+        btn_b.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(11);
             }
         });
-        btnC.setOnClickListener(new Button.OnClickListener() {
+        btn_c.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(12);
             }
         });
-        btnD.setOnClickListener(new Button.OnClickListener() {
+        btn_d.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(13);
             }
         });
-        btnE.setOnClickListener(new Button.OnClickListener() {
+        btn_e.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(14);
             }
         });
-        btnF.setOnClickListener(new Button.OnClickListener() {
+        btn_f.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleNumber(15);
             }
         });
 
         //        Вызов опереторов
-        btnPlus.setOnClickListener(new Button.OnClickListener() {
+        btn_plus.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleEquals(1);
             }
         });
-        btnMinus.setOnClickListener(new Button.OnClickListener() {
+        btn_minus.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleEquals(2);
             }
         });
-        btnMultiply.setOnClickListener(new Button.OnClickListener() {
+        btn_multiply.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleEquals(3);
             }
         });
-        btnDivide.setOnClickListener(new Button.OnClickListener() {
+        btn_divide.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleEquals(4);
             }
         });
-        btnEquals.setOnClickListener(new Button.OnClickListener() {
+        btn_equals.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleEquals(0);
             }
         });
 
         //        Вызов функций сброс и стирание
-        btnReset.setOnClickListener(new Button.OnClickListener() {
+        btn_reset.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 reset();
             }
         });
-        btnBack.setOnClickListener(new Button.OnClickListener() {
+        btn_back.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 handleBackspace();
             }
         });
 
         //        Выбор системы счисления
-        DEC_Btn.setOnClickListener(new Button.OnClickListener() {
+        dec_btn.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 dec();
             }
         });
-        HEX_Btn.setOnClickListener(new Button.OnClickListener() {
+        hex_btn.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 hex();
             }
         });
-        OCT_Btn.setOnClickListener(new Button.OnClickListener() {
+        oct_btn.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 oct();
             }
         });
-        BIN_Btn.setOnClickListener(new Button.OnClickListener() {
+        bin_btn.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 bin();
             }
@@ -271,77 +270,77 @@ public class Calculator extends AppCompatActivity {
         int num3 = Integer.parseInt(text3.getText().toString(), 8);
         int num4 = Integer.parseInt(text4.getText().toString(), 2);
 
-        if (hasChanged) {
+        if (has_changed) {
             switch (operator) {
                 case 1:
-                    if (decCheck) {
+                    if (dec_check) {
                         num = num + num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
                     }
-                    if (hexCheck) {
+                    if (hex_check) {
                         num = num + num2;
                         txt = Integer.toHexString(num);
                         handleVisionHex(txt);
                     }
-                    if (octCheck) {
+                    if (oct_check) {
                         num = num + num3;
                         txt = Integer.toOctalString(num);
                         handleVisionOct(txt);
                     }
-                    if (binCheck) {
+                    if (bin_check) {
                         num = num + num4;
                         txt = Integer.toBinaryString(num);
                         handleVisionBin(txt);
                     }
                     break;
                 case 2:
-                    if (decCheck) {
+                    if (dec_check) {
                         num = num - num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
                     }
-                    if (hexCheck) {
+                    if (hex_check) {
                         num = num - num2;
                         txt = Integer.toHexString(num);
                         handleVisionHex(txt);
                     }
-                    if (octCheck) {
+                    if (oct_check) {
                         num = num - num3;
                         txt = Integer.toOctalString(num);
                         handleVisionOct(txt);
                     }
-                    if (binCheck) {
+                    if (bin_check) {
                         num = num - num4;
                         txt = Integer.toBinaryString(num);
                         handleVisionBin(txt);
                     }
                     break;
                 case 3:
-                    if (decCheck) {
+                    if (dec_check) {
                         num = num * num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
                     }
-                    if (hexCheck) {
+                    if (hex_check) {
                         num = num * num2;
                         txt = Integer.toHexString(num);
                         handleVisionHex(txt);
                     }
-                    if (octCheck) {
+                    if (oct_check) {
                         num = num * num3;
                         txt = Integer.toOctalString(num);
                         handleVisionOct(txt);
                     }
-                    if (binCheck) {
+                    if (bin_check) {
                         num = num * num4;
                         txt = Integer.toBinaryString(num);
                         handleVisionBin(txt);
                     }
                     break;
                 case 4:
-                    if (decCheck) {
-                        if (num1!=0) {
+                    if (dec_check) {
+                        if (num1 != 0) {
                             num = num / num1;
                             txt = Integer.toString(num);
                             handleVisionDec(txt);
@@ -349,8 +348,8 @@ public class Calculator extends AppCompatActivity {
                             text1.setText(R.string.non_zero);
                         }
                     }
-                    if (hexCheck) {
-                        if (num2!=0) {
+                    if (hex_check) {
+                        if (num2 != 0) {
                             num = num / num2;
                             txt = Integer.toHexString(num);
                             handleVisionHex(txt);
@@ -358,8 +357,8 @@ public class Calculator extends AppCompatActivity {
                             text2.setText(R.string.non_zero);
                         }
                     }
-                    if (octCheck) {
-                        if (num3!=0) {
+                    if (oct_check) {
+                        if (num3 != 0) {
                             num = num / num3;
                             txt = Integer.toOctalString(num);
                             handleVisionOct(txt);
@@ -367,8 +366,8 @@ public class Calculator extends AppCompatActivity {
                             text3.setText(R.string.non_zero);
                         }
                     }
-                    if (binCheck) {
-                        if (num4!=0) {
+                    if (bin_check) {
+                        if (num4 != 0) {
                             num = num / num4;
                             txt = Integer.toBinaryString(num);
                             handleVisionBin(txt);
@@ -379,8 +378,8 @@ public class Calculator extends AppCompatActivity {
                     break;
             }
 
-            readyToClear = true;
-            hasChanged = false;
+            ready_to_clear = true;
+            has_changed = false;
         }
 
         operator = newOperator;
@@ -391,23 +390,23 @@ public class Calculator extends AppCompatActivity {
         if (operator == 0)
             reset();
 
-        if (decCheck) {
+        if (dec_check) {
 
             String txt = text1.getText().toString();
-            if (readyToClear) {
+            if (ready_to_clear) {
                 txt = "";
-                readyToClear = false;
+                ready_to_clear = false;
             } else if (txt.equals("0"))
                 txt = "";
             txt = txt + Integer.toString(num);
             handleVisionDec(txt);
 
-        } else if (hexCheck) {
+        } else if (hex_check) {
 
             String txt = text2.getText().toString();
-            if (readyToClear) {
+            if (ready_to_clear) {
                 txt = "";
-                readyToClear = false;
+                ready_to_clear = false;
             } else if (txt.equals("0"))
                 txt = "";
             String hex = Integer.toString(num);
@@ -434,30 +433,30 @@ public class Calculator extends AppCompatActivity {
             txt = txt + hex;
             handleVisionHex(txt);
 
-        } else if (octCheck) {
+        } else if (oct_check) {
 
             String txt = text3.getText().toString();
-            if (readyToClear) {
+            if (ready_to_clear) {
                 txt = "";
-                readyToClear = false;
+                ready_to_clear = false;
             } else if (txt.equals("0"))
                 txt = "";
             txt = txt + Integer.toString(num);
             handleVisionOct(txt);
 
-        } else if (binCheck) {
+        } else if (bin_check) {
 
             String txt = text4.getText().toString();
-            if (readyToClear) {
+            if (ready_to_clear) {
                 txt = "";
-                readyToClear = false;
+                ready_to_clear = false;
             } else if (txt.equals("0"))
                 txt = "";
             txt = txt + Integer.toString((int) num);
             handleVisionBin(txt);
         }
 
-        hasChanged = true;
+        has_changed = true;
     }
 
     private void handleVisionDec(String txt) {
@@ -508,17 +507,17 @@ public class Calculator extends AppCompatActivity {
 
     //    Стирание последнего символа
     private void handleBackspace() {
-        if (!readyToClear) {
-            if (decCheck) {
+        if (!ready_to_clear) {
+            if (dec_check) {
                 String txt = text1.getText().toString();
                 output(txt);
-            } else if (hexCheck) {
+            } else if (hex_check) {
                 String txt = text2.getText().toString();
                 output(txt);
-            } else if (octCheck) {
+            } else if (oct_check) {
                 String txt = text3.getText().toString();
                 output(txt);
-            } else if (binCheck) {
+            } else if (bin_check) {
                 String txt = text4.getText().toString();
                 output(txt);
             }
@@ -530,13 +529,13 @@ public class Calculator extends AppCompatActivity {
             if (txt.equals(""))
                 txt = "0";
 
-            if (decCheck) {
+            if (dec_check) {
                 handleVisionDec(txt);
-            } else if (hexCheck) {
+            } else if (hex_check) {
                 handleVisionHex(txt);
-            } else if (octCheck) {
+            } else if (oct_check) {
                 handleVisionOct(txt);
-            } else if (binCheck) {
+            } else if (bin_check) {
                 handleVisionBin(txt);
             }
         }
@@ -545,121 +544,120 @@ public class Calculator extends AppCompatActivity {
     //    Сброс
     private void reset() {
         num = 0;
-        text1.setText("");
-        text2.setText("");
-        text3.setText("");
-        text4.setText("");
+        text1.setText("0");
+        text2.setText("0");
+        text3.setText("0");
+        text4.setText("0");
         operator = 1;
-        readyToClear = false;
-        hasChanged = false;
+        ready_to_clear = false;
+        has_changed = false;
     }
 
     //    Блокирование кнопок не включёнынх в 10-чную систему
     public void dec() {
-        DEC_Btn.setBackgroundColor(0x206C6C6C);
-        HEX_Btn.setBackgroundColor(0x00FFFFFF);
-        OCT_Btn.setBackgroundColor(0x00FFFFFF);
-        BIN_Btn.setBackgroundColor(0x00FFFFFF);
-        btnTwo.setEnabled(true);
-        btnThree.setEnabled(true);
-        btnFour.setEnabled(true);
-        btnFive.setEnabled(true);
-        btnSix.setEnabled(true);
-        btnSeven.setEnabled(true);
-        btnEight.setEnabled(true);
-        btnNine.setEnabled(true);
-        btnBack.setEnabled(true);
-        btnA.setEnabled(false);
-        btnB.setEnabled(false);
-        btnC.setEnabled(false);
-        btnD.setEnabled(false);
-        btnE.setEnabled(false);
-        btnF.setEnabled(false);
-        decCheck = true;
-        hexCheck = false;
-        octCheck = false;
-        binCheck = false;
+        dec_btn.setBackgroundColor(0x206C6C6C);
+        hex_btn.setBackgroundColor(0x00FFFFFF);
+        oct_btn.setBackgroundColor(0x00FFFFFF);
+        bin_btn.setBackgroundColor(0x00FFFFFF);
+        btn_two.setEnabled(true);
+        btn_three.setEnabled(true);
+        btn_four.setEnabled(true);
+        btn_five.setEnabled(true);
+        btn_six.setEnabled(true);
+        btn_seven.setEnabled(true);
+        btn_eight.setEnabled(true);
+        btn_nine.setEnabled(true);
+        btn_a.setEnabled(false);
+        btn_b.setEnabled(false);
+        btn_c.setEnabled(false);
+        btn_d.setEnabled(false);
+        btn_e.setEnabled(false);
+        btn_f.setEnabled(false);
+        dec_check = true;
+        hex_check = false;
+        oct_check = false;
+        bin_check = false;
         reset();
     }
 
     //    Блокирование кнопок не включёнынх в 16-чную систему
     public void hex() {
-        DEC_Btn.setBackgroundColor(0x00FFFFFF);
-        HEX_Btn.setBackgroundColor(0x206C6C6C);
-        OCT_Btn.setBackgroundColor(0x00FFFFFF);
-        BIN_Btn.setBackgroundColor(0x00FFFFFF);
-        btnTwo.setEnabled(true);
-        btnThree.setEnabled(true);
-        btnFour.setEnabled(true);
-        btnFive.setEnabled(true);
-        btnSix.setEnabled(true);
-        btnSeven.setEnabled(true);
-        btnEight.setEnabled(true);
-        btnNine.setEnabled(true);
-        btnA.setEnabled(true);
-        btnB.setEnabled(true);
-        btnC.setEnabled(true);
-        btnD.setEnabled(true);
-        btnE.setEnabled(true);
-        btnF.setEnabled(true);
-        decCheck = false;
-        hexCheck = true;
-        octCheck = false;
-        binCheck = false;
+        dec_btn.setBackgroundColor(0x00FFFFFF);
+        hex_btn.setBackgroundColor(0x206C6C6C);
+        oct_btn.setBackgroundColor(0x00FFFFFF);
+        bin_btn.setBackgroundColor(0x00FFFFFF);
+        btn_two.setEnabled(true);
+        btn_three.setEnabled(true);
+        btn_four.setEnabled(true);
+        btn_five.setEnabled(true);
+        btn_six.setEnabled(true);
+        btn_seven.setEnabled(true);
+        btn_eight.setEnabled(true);
+        btn_nine.setEnabled(true);
+        btn_a.setEnabled(true);
+        btn_b.setEnabled(true);
+        btn_c.setEnabled(true);
+        btn_d.setEnabled(true);
+        btn_e.setEnabled(true);
+        btn_f.setEnabled(true);
+        dec_check = false;
+        hex_check = true;
+        oct_check = false;
+        bin_check = false;
         reset();
     }
 
     //    Блокирование кнопок не включёнынх в 8-чную систему
     public void oct() {
-        DEC_Btn.setBackgroundColor(0x00FFFFFF);
-        HEX_Btn.setBackgroundColor(0x00FFFFFF);
-        OCT_Btn.setBackgroundColor(0x206C6C6C);
-        BIN_Btn.setBackgroundColor(0x00FFFFFF);
-        btnTwo.setEnabled(true);
-        btnThree.setEnabled(true);
-        btnFour.setEnabled(true);
-        btnFive.setEnabled(true);
-        btnSix.setEnabled(true);
-        btnSeven.setEnabled(true);
-        btnEight.setEnabled(false);
-        btnNine.setEnabled(false);
-        btnA.setEnabled(false);
-        btnB.setEnabled(false);
-        btnC.setEnabled(false);
-        btnD.setEnabled(false);
-        btnE.setEnabled(false);
-        btnF.setEnabled(false);
-        decCheck = false;
-        hexCheck = false;
-        octCheck = true;
-        binCheck = false;
+        dec_btn.setBackgroundColor(0x00FFFFFF);
+        hex_btn.setBackgroundColor(0x00FFFFFF);
+        oct_btn.setBackgroundColor(0x206C6C6C);
+        bin_btn.setBackgroundColor(0x00FFFFFF);
+        btn_two.setEnabled(true);
+        btn_three.setEnabled(true);
+        btn_four.setEnabled(true);
+        btn_five.setEnabled(true);
+        btn_six.setEnabled(true);
+        btn_seven.setEnabled(true);
+        btn_eight.setEnabled(false);
+        btn_nine.setEnabled(false);
+        btn_a.setEnabled(false);
+        btn_b.setEnabled(false);
+        btn_c.setEnabled(false);
+        btn_d.setEnabled(false);
+        btn_e.setEnabled(false);
+        btn_f.setEnabled(false);
+        dec_check = false;
+        hex_check = false;
+        oct_check = true;
+        bin_check = false;
         reset();
     }
 
     //    Блокирование кнопок не включёнынх в 2-чную систему
     public void bin() {
-        DEC_Btn.setBackgroundColor(0x00FFFFFF);
-        HEX_Btn.setBackgroundColor(0x00FFFFFF);
-        OCT_Btn.setBackgroundColor(0x00FFFFFF);
-        BIN_Btn.setBackgroundColor(0x206C6C6C);
-        btnTwo.setEnabled(false);
-        btnThree.setEnabled(false);
-        btnFour.setEnabled(false);
-        btnFive.setEnabled(false);
-        btnSix.setEnabled(false);
-        btnSeven.setEnabled(false);
-        btnEight.setEnabled(false);
-        btnNine.setEnabled(false);
-        btnA.setEnabled(false);
-        btnB.setEnabled(false);
-        btnC.setEnabled(false);
-        btnD.setEnabled(false);
-        btnE.setEnabled(false);
-        btnF.setEnabled(false);
-        decCheck = false;
-        hexCheck = false;
-        octCheck = false;
-        binCheck = true;
+        dec_btn.setBackgroundColor(0x00FFFFFF);
+        hex_btn.setBackgroundColor(0x00FFFFFF);
+        oct_btn.setBackgroundColor(0x00FFFFFF);
+        bin_btn.setBackgroundColor(0x206C6C6C);
+        btn_two.setEnabled(false);
+        btn_three.setEnabled(false);
+        btn_four.setEnabled(false);
+        btn_five.setEnabled(false);
+        btn_six.setEnabled(false);
+        btn_seven.setEnabled(false);
+        btn_eight.setEnabled(false);
+        btn_nine.setEnabled(false);
+        btn_a.setEnabled(false);
+        btn_b.setEnabled(false);
+        btn_c.setEnabled(false);
+        btn_d.setEnabled(false);
+        btn_e.setEnabled(false);
+        btn_f.setEnabled(false);
+        dec_check = false;
+        hex_check = false;
+        oct_check = false;
+        bin_check = true;
         reset();
     }
 }
