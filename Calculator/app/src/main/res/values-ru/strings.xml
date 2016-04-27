@@ -30,6 +30,6 @@
     <string name="btn_e">e</string>
     <string name="btn_f">f</string>
     <string name="non_zero">На ноль делить нельзя.</string>
-    <!--<string name="nothing">Вы ничего не ввели.</string>-->
+    <string name="nothing">Вы ничего не ввели.Нажмите С и вводите число.</string>
 
 </resources>

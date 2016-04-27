@@ -55,6 +55,7 @@ public class Calculator extends AppCompatActivity {
     private Button btn_f;
 
     private int num = 0;
+    private int num1 = 0;
 
     private int operator = 1;
     // 0 = ничего
@@ -202,27 +203,52 @@ public class Calculator extends AppCompatActivity {
         //        Вызов опереторов
         btn_plus.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                handleEquals(1);
+                if (has_changed) {
+                    handleEquals(1);
+                } else {
+                    reset();
+                    text1.setText(R.string.nothing);
+                }
             }
         });
         btn_minus.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                handleEquals(2);
+                if (has_changed) {
+                    handleEquals(2);
+                } else {
+                    reset();
+                    text1.setText(R.string.nothing);
+                }
             }
         });
         btn_multiply.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                handleEquals(3);
+                if (has_changed) {
+                    handleEquals(3);
+                } else {
+                    reset();
+                    text1.setText(R.string.nothing);
+                }
             }
         });
         btn_divide.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                handleEquals(4);
+                if (has_changed) {
+                    handleEquals(4);
+                } else {
+                    reset();
+                    text1.setText(R.string.nothing);
+                }
             }
         });
         btn_equals.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                handleEquals(0);
+                if (has_changed) {
+                    handleEquals(0);
+                } else {
+                    reset();
+                    text1.setText(R.string.nothing);
+                }
             }
         });
 
@@ -234,7 +260,9 @@ public class Calculator extends AppCompatActivity {
         });
         btn_back.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                handleBackspace();
+                if (!ready_to_clear) {
+                    handleBackspace();
+                }
             }
         });
 
@@ -265,81 +293,34 @@ public class Calculator extends AppCompatActivity {
     private void handleEquals(int newOperator) {
 
         String txt;
-        int num1 = Integer.parseInt(text1.getText().toString());
-        int num2 = Integer.parseInt(text2.getText().toString(), 16);
-        int num3 = Integer.parseInt(text3.getText().toString(), 8);
-        int num4 = Integer.parseInt(text4.getText().toString(), 2);
+
+        num1 = Integer.parseInt(text1.getText().toString());
+
+        if ((num1)==(R.string.nothing)) {
+            has_changed = false;
+        } else if ((num1)==(R.string.non_zero)) {
+            has_changed = false;
+        }
 
         if (has_changed) {
-            switch (operator) {
-                case 1:
-                    if (dec_check) {
+            if (dec_check) {
+                switch (operator) {
+                    case 1:
                         num = num + num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
-                    }
-                    if (hex_check) {
-                        num = num + num2;
-                        txt = Integer.toHexString(num);
-                        handleVisionHex(txt);
-                    }
-                    if (oct_check) {
-                        num = num + num3;
-                        txt = Integer.toOctalString(num);
-                        handleVisionOct(txt);
-                    }
-                    if (bin_check) {
-                        num = num + num4;
-                        txt = Integer.toBinaryString(num);
-                        handleVisionBin(txt);
-                    }
-                    break;
-                case 2:
-                    if (dec_check) {
+                        break;
+                    case 2:
                         num = num - num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
-                    }
-                    if (hex_check) {
-                        num = num - num2;
-                        txt = Integer.toHexString(num);
-                        handleVisionHex(txt);
-                    }
-                    if (oct_check) {
-                        num = num - num3;
-                        txt = Integer.toOctalString(num);
-                        handleVisionOct(txt);
-                    }
-                    if (bin_check) {
-                        num = num - num4;
-                        txt = Integer.toBinaryString(num);
-                        handleVisionBin(txt);
-                    }
-                    break;
-                case 3:
-                    if (dec_check) {
+                        break;
+                    case 3:
                         num = num * num1;
                         txt = Integer.toString(num);
                         handleVisionDec(txt);
-                    }
-                    if (hex_check) {
-                        num = num * num2;
-                        txt = Integer.toHexString(num);
-                        handleVisionHex(txt);
-                    }
-                    if (oct_check) {
-                        num = num * num3;
-                        txt = Integer.toOctalString(num);
-                        handleVisionOct(txt);
-                    }
-                    if (bin_check) {
-                        num = num * num4;
-                        txt = Integer.toBinaryString(num);
-                        handleVisionBin(txt);
-                    }
-                    break;
-                case 4:
-                    if (dec_check) {
+                        break;
+                    case 4:
                         if (num1 != 0) {
                             num = num / num1;
                             txt = Integer.toString(num);
@@ -347,35 +328,91 @@ public class Calculator extends AppCompatActivity {
                         } else {
                             text1.setText(R.string.non_zero);
                         }
-                    }
-                    if (hex_check) {
-                        if (num2 != 0) {
-                            num = num / num2;
+                        break;
+                }
+            }
+            if (hex_check) {
+                switch (operator) {
+                    case 1:
+                        num = num + num1;
+                        txt = Integer.toHexString(num);
+                        handleVisionHex(txt);
+                        break;
+                    case 2:
+                        num = num - num1;
+                        txt = Integer.toHexString(num);
+                        handleVisionHex(txt);
+                        break;
+                    case 3:
+                        num = num * num1;
+                        txt = Integer.toHexString(num);
+                        handleVisionHex(txt);
+                        break;
+                    case 4:
+                        if (num1 != 0) {
+                            num = num / num1;
                             txt = Integer.toHexString(num);
                             handleVisionHex(txt);
                         } else {
                             text2.setText(R.string.non_zero);
                         }
-                    }
-                    if (oct_check) {
-                        if (num3 != 0) {
-                            num = num / num3;
+                        break;
+                }
+            }
+            if (oct_check) {
+                switch (operator) {
+                    case 1:
+                        num = num + num1;
+                        txt = Integer.toOctalString(num);
+                        handleVisionOct(txt);
+                        break;
+                    case 2:
+                        num = num - num1;
+                        txt = Integer.toOctalString(num);
+                        handleVisionOct(txt);
+                        break;
+                    case 3:
+                        num = num * num1;
+                        txt = Integer.toOctalString(num);
+                        handleVisionOct(txt);
+                    case 4:
+                        if (num1 != 0) {
+                            num = num / num1;
                             txt = Integer.toOctalString(num);
                             handleVisionOct(txt);
                         } else {
                             text3.setText(R.string.non_zero);
                         }
-                    }
-                    if (bin_check) {
-                        if (num4 != 0) {
-                            num = num / num4;
+                        break;
+                }
+            }
+            if (bin_check) {
+                switch (operator) {
+                    case 1:
+                        num = num + num1;
+                        txt = Integer.toBinaryString(num);
+                        handleVisionBin(txt);
+                        break;
+                    case 2:
+                        num = num - num1;
+                        txt = Integer.toBinaryString(num);
+                        handleVisionBin(txt);
+                        break;
+                    case 3:
+                        num = num * num1;
+                        txt = Integer.toBinaryString(num);
+                        handleVisionBin(txt);
+                        break;
+                    case 4:
+                        if (num1 != 0) {
+                            num = num / num1;
                             txt = Integer.toBinaryString(num);
                             handleVisionBin(txt);
                         } else {
                             text4.setText(R.string.non_zero);
                         }
-                    }
-                    break;
+                        break;
+                }
             }
 
             ready_to_clear = true;
@@ -387,29 +424,29 @@ public class Calculator extends AppCompatActivity {
 
     //    Вывод числа на экран
     private void handleNumber(int num) {
+
+        String s_num = Integer.toString(num);
+
         if (operator == 0)
             reset();
 
         if (dec_check) {
-
             String txt = text1.getText().toString();
             if (ready_to_clear) {
                 txt = "";
                 ready_to_clear = false;
             } else if (txt.equals("0"))
                 txt = "";
-            txt = txt + Integer.toString(num);
+            txt = txt + s_num;
             handleVisionDec(txt);
-
         } else if (hex_check) {
-
             String txt = text2.getText().toString();
             if (ready_to_clear) {
                 txt = "";
                 ready_to_clear = false;
             } else if (txt.equals("0"))
                 txt = "";
-            String hex = Integer.toString(num);
+            String hex = s_num;
             switch (num){
                 case 10:
                     hex = "A";
@@ -432,27 +469,23 @@ public class Calculator extends AppCompatActivity {
             }
             txt = txt + hex;
             handleVisionHex(txt);
-
         } else if (oct_check) {
-
             String txt = text3.getText().toString();
             if (ready_to_clear) {
                 txt = "";
                 ready_to_clear = false;
             } else if (txt.equals("0"))
                 txt = "";
-            txt = txt + Integer.toString(num);
+            txt = txt + s_num;
             handleVisionOct(txt);
-
         } else if (bin_check) {
-
             String txt = text4.getText().toString();
             if (ready_to_clear) {
                 txt = "";
                 ready_to_clear = false;
             } else if (txt.equals("0"))
                 txt = "";
-            txt = txt + Integer.toString((int) num);
+            txt = txt + s_num;
             handleVisionBin(txt);
         }
 
@@ -544,10 +577,10 @@ public class Calculator extends AppCompatActivity {
     //    Сброс
     private void reset() {
         num = 0;
-        text1.setText("0");
-        text2.setText("0");
-        text3.setText("0");
-        text4.setText("0");
+        text1.setText("");
+        text2.setText("");
+        text3.setText("");
+        text4.setText("");
         operator = 1;
         ready_to_clear = false;
         has_changed = false;
